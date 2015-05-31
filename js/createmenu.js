@@ -1,4 +1,5 @@
 /**
+ * The create menu is the menu where the user can choose what type of block to create.
  * Created by anoop on 5/25/15.
  */
 
@@ -8,7 +9,7 @@
 Anoop.setupCreateMenu = function() {
 
     var showingCreateMenu = false; // boolean: whether the menu is showing right now
-    var createMenu = $("#createmenu"); // jQuery object: the menu
+    var createMenu = $('#createmenu'); // jQuery object: the menu
 
     // hides the menu
     var hideCreateMenu = function() {
@@ -27,22 +28,23 @@ Anoop.setupCreateMenu = function() {
     createMenu.hide();
 
     // when user clicks one of the <p> elements in the menu, create the appropriate type of element
-    $("#createmenu p").click(function(event) {
+    createMenu.find('p').click(function(event) {
         // the type of element is found in the "anoop-block-type" attribute
         // place the element at the location where the create menu was shown
         Anoop.createBlock(
-            $(this).attr("anoop-block-type"),
-            createMenu.css("left"),
-            createMenu.css("top"));
+            $(this).attr('data-block-type'),
+            createMenu.css('left'),
+            createMenu.css('top'));
     });
 
     $(document).click(function(event) {
         if (showingCreateMenu) {
             hideCreateMenu();
         } else {
-            var clickX = event.pageX - $("#circuit").offset().left;
-            var clickY = event.pageY - $("#circuit").offset().top;
+            var sectionOffset = $('section').offset();
+            var clickX = event.pageX - sectionOffset.left;
+            var clickY = event.pageY - sectionOffset.top;
             showCreateMenu(clickX, clickY);
         }
     });
-}
+};

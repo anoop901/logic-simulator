@@ -1,9 +1,10 @@
 /**
+ * The user needs to be able to drag the blocks around
  * Created by anoop on 5/28/15.
  */
 
 /**
- * Sets up user's ability to drag gates around.
+ * Sets up user's ability to drag blocks around.
  */
 Anoop.setupDragging = function () {
 
@@ -12,7 +13,7 @@ Anoop.setupDragging = function () {
     var offX = 0;
     var offY = 0;
 
-    $("#circuit").on({
+    $('section').on({
         mousedown: function (event) {
             // initiate the drag
             dragging = true;
@@ -48,4 +49,4 @@ Anoop.setupDragging = function () {
     $(document).contextmenu(function (event) {
         event.preventDefault();
     });
-}
+};

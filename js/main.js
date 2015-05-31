@@ -8,15 +8,17 @@ var Anoop = {};
  * Creates a block of the given type.
  * @param blockType (String) the type of block to create
  * @param x (number) the x-position of the new block, relative to the circuit div
+ * @param y (number) the y-position of the new block, relative to the current div
  */
 Anoop.createBlock = function(blockType, x, y) {
     var block = $('<img src="img/blocks/' + blockType + '.svg" class="gate" draggable="false"></img>');
     block.css({
         left: x,
         top: y
-    })
-    $("#circuit").append(block)
-}
+    });
+    block.fadeIn(300);
+    $('#gates').append(block)
+};
 
 
 

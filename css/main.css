@@ -56,7 +56,7 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-body {
+html, body {
     cursor: default;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -64,10 +64,23 @@ body {
     user-select: none;
 }
 
-#circuit {
+h1, h2, p {
+    margin: 3px;
+}
+
+header {
+    background: lightyellow;
+    border-bottom: 3px solid black;
+    padding: 3px;
+    z-index: 2;
+    position: relative;
+}
+
+section {
     position: relative;
     left: 0;
     top: 0;
+    z-index: 0;
 }
 
 img.gate {
@@ -77,17 +90,27 @@ img.gate {
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    z-index: 0;
 }
 
+/* styles for the create menu */
 #createmenu {
     position: absolute;
     padding: 5px;
     border: 1px solid black;
-    background: #eeeeee;
+    background: lightyellow;
+    z-index: 1;
+    width: 150px;
+}
+
+#createmenu p {
+    border: 1px solid black;
+    background: lightsalmon;
+    padding: 2px;
 }
 
 #createmenu p:hover {
-    background: #cccccc;
+    background: salmon;
     cursor: pointer;
 }
 
