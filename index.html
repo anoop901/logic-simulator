@@ -13,7 +13,6 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="js/vendor/react.js"></script>
-        <script src="js/vendor/JSXTransformer.js"></script>
     </head>
     <body>
         <header>
@@ -23,15 +22,16 @@
         <section>
             <div id="createmenu">
                 <h2>Create</h2>
-                <p data-block-type="and_gate">AND gate</p>
-                <p data-block-type="or_gate">OR gate</p>
+                <p data-logic-block-type="and_gate">AND gate</p>
+                <p data-logic-block-type="or_gate">OR gate</p>
             </div>
-            <div id="gates">
+            <div id="logic-blocks">
             </div>
         </section>
 
         <script src="js/main.js"></script>
         <script src="js/createmenu.js"></script>
         <script src="js/dragging.js"></script>
+        <script src="js/build/render_blocks.js"></script>
     </body>
 </html>

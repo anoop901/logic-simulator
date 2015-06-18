@@ -2,24 +2,48 @@
  * Created by anoop on 5/28/15.
  */
 
-var Anoop = {};
-
-/**
- * Creates a block of the given type.
- * @param blockType (String) the type of block to create
- * @param x (number) the x-position of the new block, relative to the circuit div
- * @param y (number) the y-position of the new block, relative to the current div
- */
-Anoop.createBlock = function(blockType, x, y) {
-    var block = $('<img src="img/blocks/' + blockType + '.svg" class="gate" draggable="false"></img>');
-    block.css({
-        left: x,
-        top: y
-    });
-    block.fadeIn(300);
-    $('#gates').append(block)
+var Anoop = {
+    /**
+     * (int) a number used to generate unique keys for blocks
+     */
+    currentBlockNum: 0,
+    /**
+     * Array of objects, one for each logic block. Each object has the following attributes:
+     *  type (String): the type of logic block
+     *  x (String): the x-position of the block, relative to the circuit div
+     *  y (String): the y-position of the block, relative to the circuit div
+     */
+    logic_blocks: {
+        'special_and': {
+            type: 'and_gate',
+            x: '200px',
+            y: '100px'
+        },
+        'special_or': {
+            type: 'or_gate',
+            x: '100px',
+            y: '200px'
+        }
+    }
 };
 
+/**
+ * Creates a logic block of the given type.
+ * @param blockType (String) the type of logic block to create
+ * @param x (String) the x-position of the new block, relative to the circuit div
+ * @param y (String) the y-position of the new block, relative to the circuit div
+ */
+Anoop.createLogicBlock = function(blockType, x, y) {
+
+    Anoop.logic_blocks['block-' + Anoop.currentBlockNum] = {
+        type: blockType,
+        x: x,
+        y: y
+    };
+    Anoop.currentBlockNum ++;
+
+    Anoop.updateState();
+};
 
 
 
@@ -31,6 +55,7 @@ Anoop.createBlock = function(blockType, x, y) {
 // wait until all other scripts have executed so that the functions they define can be called
 $(document).ready(function() {
     // this is the start of the program flow
-    Anoop.setupDragging();
     Anoop.setupCreateMenu();
+    Anoop.setupDragging();
+    Anoop.renderBlocks();
 });

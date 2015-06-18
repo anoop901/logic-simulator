@@ -83,18 +83,14 @@ section {
     z-index: 0;
 }
 
-img.gate {
+img.logicblock {
     position: absolute;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
     z-index: 0;
 }
 
 /* styles for the create menu */
 #createmenu {
+    display: none;
     position: absolute;
     padding: 5px;
     border: 1px solid black;
