@@ -13,28 +13,28 @@ Anoop.setupDragging = function () {
     var offX = 0;
     var offY = 0;
 
-    $('#logic-blocks').on({
+    var logic_blocks_jq = $('#logic-blocks');
+
+    logic_blocks_jq.on({
         click: function (event) {
             // this is required to prevent the create menu from showing up when dragging blocks
             event.stopPropagation();
             event.preventDefault();
         }
-    }, '.logicblock');
+    }, '.logic-block');
 
     Anoop.setupDragging.startDrag = function (event, blockName) {
         // initiate the drag
         dragging = true;
         element = blockName;
-        var target_jq = $(event.target);
-        offX = event.pageX - target_jq.offset().left;
-        offY = event.pageY - target_jq.offset().top;
-        console.log(offX + ', ' + offY);
+        offX = event.pageX - (logic_blocks_jq.offset().left + Anoop.logic_blocks[blockName].x);
+        offY = event.pageY - (logic_blocks_jq.offset().top + Anoop.logic_blocks[blockName].y);
     };
 
     $(document).mousemove(function (event) {
         if (dragging) {
-            Anoop.logic_blocks[element].x = event.pageX - $('#logic-blocks').offset().left - offX;
-            Anoop.logic_blocks[element].y = event.pageY - $('#logic-blocks').offset().top - offY;
+            Anoop.logic_blocks[element].x = event.pageX - logic_blocks_jq.offset().left - offX;
+            Anoop.logic_blocks[element].y = event.pageY - logic_blocks_jq.offset().top - offY;
             Anoop.updateState();
         }
     });

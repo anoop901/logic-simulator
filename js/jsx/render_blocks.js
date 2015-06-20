@@ -9,7 +9,7 @@ Anoop.renderBlocks = function () {
         render: function () {
             return <img
                 src={'img/logic-blocks/' + this.props.type + '.svg'}
-                className="logicblock"
+                className="logic-block"
                 draggable="false"
                 onMouseDown={this.startDrag}
                 style={{left: this.props.x, top: this.props.y}}></img>;
@@ -35,9 +35,7 @@ Anoop.renderBlocks = function () {
         },
 
         render: function () {
-            //var nodes = this.state.logic_blocks.map(function (block) {
-            //    return <LogicBlock type={block.type} initX={block.x} initY={block.y}/>;
-            //});
+            // for each block in the model, add a LogicBlock to the "nodes" array
             var nodes = [];
             for (var blockName in this.state.logic_blocks) {
                 if (this.state.logic_blocks.hasOwnProperty(blockName)) {

@@ -16,13 +16,13 @@ var Anoop = {
     logic_blocks: {
         'special_and': {
             type: 'and_gate',
-            x: '200px',
-            y: '100px'
+            x: 200,
+            y: 100
         },
         'special_or': {
             type: 'or_gate',
-            x: '100px',
-            y: '200px'
+            x: 100,
+            y: 200
         }
     }
 };
@@ -42,7 +42,9 @@ Anoop.createLogicBlock = function(blockType, x, y) {
     };
     Anoop.currentBlockNum ++;
 
-    Anoop.updateState();
+    if (Anoop.updateState) {
+        Anoop.updateState();
+    }
 };
 
 

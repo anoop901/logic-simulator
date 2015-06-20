@@ -9,10 +9,12 @@
 
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/flick/jquery-ui.css">
 
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="js/vendor/react.js"></script>
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     </head>
     <body>
         <header>
@@ -20,11 +22,11 @@
         </header>
 
         <section>
-            <div id="createmenu">
-                <h2>Create</h2>
-                <p data-logic-block-type="and_gate">AND gate</p>
-                <p data-logic-block-type="or_gate">OR gate</p>
-            </div>
+            <ul id="create-menu">
+                <li class="ui-widget-header">Create</li>
+                <li data-logic-block-type="and_gate">AND gate</li>
+                <li data-logic-block-type="or_gate">OR gate</li>
+            </ul>
             <div id="logic-blocks">
             </div>
         </section>
